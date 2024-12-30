@@ -216,7 +216,7 @@ if ( $status == 'creator' or $status == 'administrator' or in_array($from_id,$De
 elseif ( strpos($textmassage , '/rmsg ') !== false or strpos($textmassage , 'پاک کردن ') !== false  ) {
 if ( $status == 'creator' or $status == 'administrator' or in_array($from_id,$Dev)){
 $num = str_replace(['/rmsg ','پاک کردن '],'',$textmassage);
-if ($num <= 300 && $num >= 1){
+if ($num <= 999 && $num >= 1){
 $add = $settings["information"]["added"];
 if ($add == true) {
 for($i=$message_id; $i>=$message_id-$num; $i--){
@@ -250,7 +250,7 @@ botevoobot('sendmessage',[
  'chat_id' => $chat_id,
  'text'=>"خطا⚠️
 ➖➖➖➖➖➖
-عدد وارد شده باید بین 1 تا 300 باشد",
+عدد وارد شده باید بین 1 تا 999 باشد",
 'reply_markup'=>$inlinebutton,
    ]);
 }
