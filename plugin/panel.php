@@ -318,7 +318,7 @@ botevoobot('sendmessage',[
 	  'reply_markup'=>json_encode([
     'keyboard'=>[
  	[
-	  	['text'=>"👤 ارسال به کابران"],['text'=>"📍 فوروارد به کاربران"]
+	  	['text'=>"👤 ارسال به کاربران"],['text'=>"📍 فوروارد به کاربران"]
 	  ],
 	[
 	['text'=>"پنل مدیریت"] 
@@ -513,7 +513,7 @@ $group = count($user["grouplist"]);
 		]);
 		}
 }
-elseif ($textmassage == '👤 ارسال به کابران' && in_array($from_id,$Dev)) {
+elseif ($textmassage == '👤 ارسال به کاربران' && in_array($from_id,$Dev)) {
          botevoobot('sendmessage',[
         	'chat_id'=>$chat_id,
         	'text'=>"لطفا متن خود را ارسال کنید 🚀",

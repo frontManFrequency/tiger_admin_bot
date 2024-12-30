@@ -284,7 +284,11 @@ botevoobot('sendmessage',[
 }
 }
 // promote
-elseif($textmassage=="/promote" or $textmassage=="promote" or $textmassage=="ترفیع"){
+elseif($textmassage=="/promote" or 
+$textmassage=="promote" or
+$textmassage=="ترفیع" or
+$textmassage=="تنظیم مدیر"
+ ){
 if ( $status == 'creator' or in_array($from_id,$Dev)) {
 botevoobot('sendmessage',[
 'chat_id'=>$chat_id,

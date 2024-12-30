@@ -497,14 +497,31 @@ $text = str_replace(['/info ','اطلاعات فرد '],'',$textmassage);
 }
 
 // fun and for all
+$ping_answers=[
+  "ها",
+  "چته",
+  "باز چته",
+  "جانم",
+  "بگو عزیزم",
+  "درخدمتم",
+  "فقط تو کم بودی",
+];
+$ping_index = array_rand($ping_answers);
+$random_answer = $ping_answers[$ping_index];
+
 // ping
-if($textmassage=="/ping" or $textmassage=="$botnamef"  or $textmassage=="ping"  or $textmassage=="$botnamef" or $textmassage=="ربات" or $textmassage=="انلاینی"){
+if($textmassage=="/ping" or $textmassage=="$botnamef"  or $textmassage=="ping"  or $textmassage=="$botnamef" or
+$textmassage=="ربات" or
+$textmassage=="انلاینی" or
+$textmassage=="ببری" or
+$textmassage=="تایگر بات"
+){
 if ( $status != 'creator' && $status != 'administrator' && !in_array($from_id,$Dev) ){
 $lockcmd = $settings["lock"]["cmd"];
 if ($lockcmd == "| غیر فعال | ❌") {
    botevoobot('sendmessage',[
   'chat_id'=>$chat_id,
-  'text'=>"<a href='tg://user?id=$from_id'>!Online</a>",
+  'text'=>$random_answer,
   'parse_mode'=>"html",
 		'reply_to_message_id'=>$message_id,
 'reply_markup'=>$inlinebutton,

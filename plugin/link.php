@@ -167,8 +167,7 @@ if ($lockanswer == "| غیر فعال | ❌") {
     ]);
   }
   }
-     elseif(strpos($textmassage,"یاد بگیر") !== false){
-        $ex = explode("\n",$textmassage);
+     elseif(strpos($textmassage,"یاد بگیر") !== false){ if ( $status != 'creator' && $status != 'administrator' && !in_array($from_id,$Dev) ){$ex = explode("\n",$textmassage);
         $word = $ex[1];
         $answer = $ex[2];
         if($word != false){
@@ -179,10 +178,10 @@ if ($lockanswer == "| غیر فعال | ❌") {
   ]);
   $settings['words'][$word] = "$answer";
   file_put_contents("data/$chat_id.json",json_encode($settings));
-        }
+        }}
+
      }
-          elseif(strpos($textmassage,"فراموش کن") !== false){
-        $ex = explode("\n",$textmassage);
+          elseif(strpos($textmassage,"فراموش کن") !== false){if ( $status != 'creator' && $status != 'administrator' && !in_array($from_id,$Dev) ){ $ex = explode("\n",$textmassage);
         $word = $ex[1];
         if($word != false){
               botevoobot('sendmessage',[
@@ -192,7 +191,8 @@ if ($lockanswer == "| غیر فعال | ❌") {
   ]);
   unset($settings['words'][$word]);
   file_put_contents("data/$chat_id.json",json_encode($settings));
-        }
+        }}
+       
   }
     elseif($textmassage=="الزایمر بگیر"){
               botevoobot('sendmessage',[
