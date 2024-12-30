@@ -144,7 +144,7 @@ botevoobot('sendmessage',[
  }
 }
 // kick
-elseif(strpos($textmassage ,"/kick ") !== false or strpos($textmassage ,"اخراج", "بن", "صیک") !== false) {
+elseif(strpos($textmassage ,"/kick ") !== false or strpos($textmassage , "بن") !== false) {
 if ( $status == 'creator' or $status == 'administrator' or in_array($from_id,$Dev)){
 $text = str_replace(['/kick ','اخراج', 'بن', 'صیک'],'',$textmassage);
 $stat = file_get_contents("https://api.telegram.org/bot$token/getChatMember?chat_id=$text&user_id=".$text);
@@ -216,7 +216,7 @@ if ( $status == 'creator' or $status == 'administrator' or in_array($from_id,$De
 elseif ( strpos($textmassage , '/rmsg ') !== false or strpos($textmassage , 'پاک کردن ') !== false  ) {
 if ( $status == 'creator' or $status == 'administrator' or in_array($from_id,$Dev)){
 $num = str_replace(['/rmsg ','پاک کردن '],'',$textmassage);
-if ($num <= 99999 && $num >= 1){
+if ($num <= 300 && $num >= 1){
 $add = $settings["information"]["added"];
 if ($add == true) {
 for($i=$message_id; $i>=$message_id-$num; $i--){
@@ -250,7 +250,7 @@ botevoobot('sendmessage',[
  'chat_id' => $chat_id,
  'text'=>"خطا⚠️
 ➖➖➖➖➖➖
-عدد وارد شده باید بین 1 تا 99999 باشد",
+عدد وارد شده باید بین 1 تا 300 باشد",
 'reply_markup'=>$inlinebutton,
    ]);
 }

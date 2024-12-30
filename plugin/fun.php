@@ -497,31 +497,15 @@ $text = str_replace(['/info ','اطلاعات فرد '],'',$textmassage);
 }
 
 // fun and for all
-$ping_answers=[
-  "ها",
-  "چته",
-  "باز چته",
-  "جانم",
-  "بگو عزیزم",
-  "درخدمتم",
-  "فقط تو کم بودی",
-];
-$ping_index = array_rand($ping_answers);
-$random_answer = $ping_answers[$ping_index];
-
 // ping
-if($textmassage=="/ping" or $textmassage=="$botnamef"  or $textmassage=="ping"  or $textmassage=="$botnamef" or
-$textmassage=="ربات" or
-$textmassage=="انلاینی" or
-$textmassage=="ببری" or
-$textmassage=="تایگر بات"
-){
+if($textmassage=="/ping" or $textmassage=="$botnamef"  or $textmassage=="ping"  or $textmassage=="$botnamef" or $textmassage=="ربات" or $textmassage=="انلاینی"  or $textmassage=="ببری" or $textmassage=="تایگر بات"){
 if ( $status != 'creator' && $status != 'administrator' && !in_array($from_id,$Dev) ){
 $lockcmd = $settings["lock"]["cmd"];
 if ($lockcmd == "| غیر فعال | ❌") {
+  $onlineMessages = ["تورو کم داشتیم","جونم", "درخدمتم", "بگو عزیزم", ]; $randomIndex = array_rand($onlineMessages); $randomMessage = $onlineMessages[$randomIndex];
    botevoobot('sendmessage',[
   'chat_id'=>$chat_id,
-  'text'=>$random_answer,
+  'text'=>$randomMessage,
   'parse_mode'=>"html",
 		'reply_to_message_id'=>$message_id,
 'reply_markup'=>$inlinebutton,
@@ -530,9 +514,10 @@ if ($lockcmd == "| غیر فعال | ❌") {
 }
 else
 {
+$onlineMessages = ["تورو کم داشتیم","جونم", "درخدمتم", "بگو عزیزم", "صدام کردی", "من اینجام", "وایسا رفتم دست به آب", "ولنجک به پایین کنسله", "جونم عزیزم", "I'm Your Security Assistant 🛡️", "دستیارت اینجاست 🛡️", "هرچی میخای بهم بگو", "هیس 🤫", "جون دلم" ]; $randomIndex = array_rand($onlineMessages); $randomMessage = $onlineMessages[$randomIndex];
    botevoobot('sendmessage',[
   'chat_id'=>$chat_id,
-  'text'=>"<a href='tg://user?id=$from_id'>!Online</a>",
+  'text'=>$randomMessage,
   'parse_mode'=>"html",
 		'reply_to_message_id'=>$message_id,
 'reply_markup'=>$inlinebutton,
